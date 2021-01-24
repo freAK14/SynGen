@@ -19,7 +19,7 @@ class syngen:
         #initialize license-plate state list
         #initialize domain list
         
-    def ph_num(self, seed = None):
+    def phone_num(self, seed = None):
         """
         Generates 10 digit Indian phone number in xxxxx-xxxxx format
         seed: Currently not used. Uses seed from the pydb class if chosen by user
@@ -36,7 +36,8 @@ class syngen:
     def license_plate():
         #need .txt file
         
-    
+    def college_regno():
+        #format 
         
         
         
