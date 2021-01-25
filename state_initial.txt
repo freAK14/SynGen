@@ -1,6 +1,3 @@
-
-
-
 AP 
 AR
 AS
@@ -32,11 +29,7 @@ RJ
 SK
 TN
 TS
-32)TR
-33)UP
-34)UK
-35)WB
-
-
-
-
+TR
+UP
+UK
+Wb
