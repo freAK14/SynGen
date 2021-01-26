@@ -126,7 +126,7 @@ class syngen:
         name_fmt_choice = choice(name_formats)
         name_combo = name_fmt_choice.format(f = f_name[0], l = l_name[0], first = f_name, last = l_name)
         
-        if choice < 7:
+        if choice_int < 7:
             email = name_combo + "@" + str(domain)
         else:
             email = name_combo + str(randint(1, 99)) + "@" + str(domain)
