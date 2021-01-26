@@ -133,7 +133,94 @@ class syngen:
             
         return email
     
-    
+    def gen_data_series(self, num = 10, data_type = "name", seed = None):
+        #description needs edit
+        """
+        Returns a pandas series object with the desired number of entries and data type
+        Data types available:
+        - name, country, city(indian), state(indian), zipcode, latitude, longitude
+        - month, weekday, year, time, date
+        - personal email, Aadhaar No.
+        - company, Job title, phone number, license plate
+        Phone number can be two types:
+        'phone_num' generates 10 digit Indian number in xxxxx-xxxxx format
+        'phone_number_full' may generate an international number with different format
+        seed: Currently not used. Uses seed from the syngen class if chosen by user
+        """
+        if type(data_type) != str:
+            raise ValueError(
+                "Data type must be of type str, found " + str(type(data_type))
+                )
+        try:
+            num = int(num)
+        except:
+            raise ValueError(
+                "Number of samples must be a positive integer, found " + num
+                )
+            
+        if num <= 0:
+            raise ValueError(
+                "Number of samples must be a positive integer, found " + num
+                )
+        num = int(num)
+        fake = self.fake
+        self.faker.seed(self.seed)
         
+        func_lookup = {
+            "name" : fake.name,
+            "country" : fake.country,
+            "street_address" : fake.street_address,
+            "full_address" :fake.address,
+            "city" : fake.city,
+            "state": fake.state,
+            "postcode" : fake.postcode,
+            "latitude" : fake.latitude,
+            "longitude" : fake.longitude,
+            "credit_card_no" : fake.credit_card_number,
+            "color" : fake.color,
+            "company_email" : fake.company_email,
+            "email1" : fake.email,
+            "month_name" : fake.month_name,
+            "weekday" : fake.day_of_week,
+            "year" : fake.year,
+            "time" : fake.time,
+            "date" : fake.date,
+            "aadhaar_id" : fake.aadhaar_id,
+            "company" : fake.company,
+            "job_title" : fake.job,
+            "phone_num" : self.phone_num,
+            "email" : self.email,
+            "license_plate" : self.license_plate,
+            "college_regno" : self.college_regno
+            }
+        
+        if data_type not in func_lookup:
+            raise ValueError(
+                "Data type must be one of " + str(list(func_lookup.keys()))
+                )
+        
+        datagen_func = func_lookup[data_type]
+
+        return pd.Series((datagen_func() for _ in range(num)))
+    
+
+    def _validate_args(self, num, fields):
+        try:
+            num = int(num)
+        except:
+            raise ValueError(
+                "Number must be a positive integer, found " + num
+                )
+            
+        if num <= 0:
+            raise ValueError(
+                "Number must be a positive integer, found " + num
+                )
+        
+        num_cols = len(fields)
+        if num_cols < 0:
+            raise ValueError(
+                "Please provide at least one type of data field to be generated"
+                )
        
         
