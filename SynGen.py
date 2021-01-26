@@ -21,7 +21,7 @@ class syngen:
         self.state_initials = self._initialize_state_initials()
         #initializing email domain list
         self.domain_list =  self._initialize_email_domains()
-        
+            
         
     def _initialize_state_initials(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -32,7 +32,8 @@ class syngen:
             state_initials = [str(line).strip() for line in f.readlines()]
             
         return state_initials
-    
+     
+        
     def _initialize_email_domains(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         path = dir_path + os.sep + "email_domains.txt"
@@ -43,10 +44,11 @@ class syngen:
             
         return email_domains
     
+    
     def phone_num(self, seed = None):
         """
         Generates 10 digit Indian phone number in xxxxx-xxxxx format
-        seed: Currently not used. Uses seed from the pydb class if chosen by user
+        seed: Currently not used. Uses seed from the syngen class if chosen by user
         """
         random.seed(self.seed)
         
@@ -57,10 +59,11 @@ class syngen:
         
         return phone_format.format(p1 = p1, p2 = p2)
     
+    
     def license_plate(self, seed = None):
         """
         Generates vehicle license plate in the format MH-31-VS-9999
-        seed: Currently not used. Uses seed from the pydb class if chosen by user
+        seed: Currently not used. Uses seed from the syngen class if chosen by user
         """
         random.seed(self.seed)
         
@@ -81,7 +84,7 @@ class syngen:
     def college_regno(self, seed = None):
         """
         Generates a 15-character college registration number in the format 2018ACSC1101085
-        seed: Currently not used. Uses seed from the pydb class if chosen by user
+        seed: Currently not used. Uses seed from the syngen class if chosen by user
         """
         random.seed(self.seed)
         
@@ -94,4 +97,43 @@ class syngen:
         p3 = "".join([str(randint(0, 9)) for _ in range (7)]) 
         
         return reg_no_format.format(p1 =p1, p2 = p2, p3 = p3)
+    
+    def email(self, name, seed = None):
+        """
+        Generates realistic email from first and last name and a random domain address
+        seed: Currently not used. Uses seed from the syngen class if chosen by user
+        """
+        random.seed(self.seed)
+        
+        name = str(name)
+        f_name = name.split()[0]
+        l_name = name.split()[-1]
+        
+        choice_int = choice(range(10))
+        
+        domain = choice(self.email_domains)
+        
+        name_formats = [
+            "{first}{last}",
+            "{first}.{last}",
+            "{first}_{last}",
+            "{last}.{first}",
+            "{last}_{first}",
+            "{f}{last}",
+            "{first}.{l}",
+            "{first}_{l}"
+            ]
+        name_fmt_choice = choice(name_formats)
+        name_combo = name_fmt_choice.format(f = f_name[0], l = l_name[0], first = f_name, last = l_name)
+        
+        if choice < 7:
+            email = name_combo + "@" + str(domain)
+        else:
+            email = name_combo + str(randint(1, 99)) + "@" + str(domain)
+            
+        return email
+    
+    
+        
+       
         
