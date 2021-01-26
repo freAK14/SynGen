@@ -89,7 +89,7 @@ class syngen:
         random.seed(self.seed)
         
         reg_no_format = "{p1}{p2}{p3}"
-        dept_list = ["ACSC", "ACIV", "AIFT", "AETX"]
+        dept_list = ["ACSC", "ACIV", "AIFT", "AETX", "AETC"]
         dept = choice(dept_list)
         
         p1 = str(randint(2010, 2022))
