@@ -138,14 +138,12 @@ class syngen:
         """
         Returns a pandas series object with the desired number of entries and data type
         Data types available:
-        - name, country, city(indian), state(indian), zipcode, latitude, longitude
-        - month, weekday, year, time, date
-        - personal email, Aadhaar No.
-        - company, Job title, phone number, license plate
-        Phone number can be two types:
-        'phone_num' generates 10 digit Indian number in xxxxx-xxxxx format
-        'phone_number_full' may generate an international number with different format
-        seed: Currently not used. Uses seed from the syngen class if chosen by user
+        - 
+        -
+        -
+        -
+        -
+        -
         """
         if type(data_type) != str:
             raise ValueError(
@@ -289,5 +287,5 @@ class syngen:
             raise ValueError(
                 "Please provide at least one type of data field to be generated"
                 )
-    
+    def 
         
