@@ -287,5 +287,19 @@ class syngen:
             raise ValueError(
                 "Please provide at least one type of data field to be generated"
                 )
-    def 
+    def gen_dataframe(self, num = 10, fields = ["name"], real_email=True, seed = None):
+        
+        self._validate_args(num, fields)
+        
+        df = pd.DataFrame(data = self.gen_data_series(num, data_type = fields[0]), columns = [fields[0]])
+        
+        for col in fields[1:]:
+            
+            df[col] = self.gen_data_series(num, data_type=col)
+            
+            if ("email" in fields) and ("name" in fields) and real_email:
+                df["email"] = df["name"].apply(self.email)
+            
+        return df
+        
         
