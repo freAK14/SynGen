@@ -167,30 +167,97 @@ class syngen:
         self.faker.seed(self.seed)
         
         func_lookup = {
-            "name" : fake.name,
-            "country" : fake.country,
-            "street_address" : fake.street_address,
-            "full_address" :fake.address,
+            #-----Address-----#
+            "address" : fake.address,
+            "building_number" : fake.building_number,
             "city" : fake.city,
-            "state": fake.state,
+            "country" : fake.country,
+            "country_code" : fake.country_code,
             "postcode" : fake.postcode,
+            "street_address" : fake.street_address,
+            "state" : fake.state,
+            
+            #-----Automotive-----#
+            "license_plate" : self.license_plate,
+            
+            #-----Barcode-----#
+            "ean" : fake.ean,
+            
+            #-----Color-----#
+            "color" : fake.color,
+            "color_name" : fake.color_name,
+            "rgb_color" : fake.rgb_color,
+            
+            #-----Company-----#
+            "company" : fake.company,
+            
+            #-----Credit Card-----#
+            
+            
+            #-----Date-Time-----#
+            "century" : fake.century,
+            "date" : fake.date,
+            "date_between" : fake.date_between,        #between today and last 30 years
+            "date_this_century" : fake.date_this_century,
+            "date_this_decade" : fake.date_this_decade,
+            "date_this_year" : fake.date_this_year,
+            "date_this_month" : fake.date_this_month,
+            "date_time" : fake.date_time,
+            "day_of_month" : fake.day_of_month,
+            "day_of_week" : fake.day_of_week,
+            "future_date" : fake.future_date,        #between today and next 30 days
+            "month" : fake.month,
+            "month_name" : fake.month_name,
+            "time" : fake.time,
+            "year" : fake.year,
+            
+            #-----Geographic-----#
+            "coordinate" : fake.coordinate,
             "latitude" : fake.latitude,
             "longitude" : fake.longitude,
-            "credit_card_no" : fake.credit_card_number,
-            "color" : fake.color,
+            
+            #-----Internet-----#
             "company_email" : fake.company_email,
-            "email1" : fake.email,
-            "month_name" : fake.month_name,
-            "weekday" : fake.day_of_week,
-            "year" : fake.year,
-            "time" : fake.time,
-            "date" : fake.date,
+            "ipv4" : fake.ipv4,
+            "ipv4_private" : fake.ipv4_private,
+            "ipv6" : fake.ipv6,
+            "mac_address" : fake.mac_address,
+            "port_number" : fake.port_number,
+            "url" : fake.url,
+            
+            #-----Book ISBN-----#
+            "isbn10" : fake.isbn10,
+            "isbn13" : fake.isbn13,
+            
+            #-----Job-----#
+            "job" : fake.job,
+            
+            #-----Text-----#
+            "paragraph" : fake.paragraph,
+            "sentence" : fake.sentence,
+            "text" : fake.text,
+            "word" : fake.word,
+            
+            #-----Miscellaneous-----#
+            "boolean" : fake.boolean,
+            "json" : fake.json,
+            "md5" : fake.md5,        #hexadecimal MD5 hash
+            "password" : fake.password,
+            
+            #-----Person-----#
+            "first_name" : fake.first_name,
+            "first_name_female" : fake.first_name_female,
+            "first_name_male" : fake.first_name_male,
+            "last_name" : fake.last_name,
+            "name" : fake.name,
+            "name_female" : fake.name_female,
+            "name_male" : fake.name_male,
             "aadhaar_id" : fake.aadhaar_id,
-            "company" : fake.company,
-            "job_title" : fake.job,
+            "prefix" : fake.prefix,
+            "language_name" : fake.language_name,
+            
             "phone_num" : self.phone_num,
             "email" : self.email,
-            "license_plate" : self.license_plate,
             "college_regno" : self.college_regno
             }
         
@@ -222,5 +289,5 @@ class syngen:
             raise ValueError(
                 "Please provide at least one type of data field to be generated"
                 )
-       
+    
         
