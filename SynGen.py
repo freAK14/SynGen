@@ -111,7 +111,7 @@ class syngen:
         
         choice_int = choice(range(10))
         
-        domain = choice(self.email_domains)
+        domain = choice(self.domain_list)
         
         name_formats = [
             "{first}{last}",
@@ -287,7 +287,14 @@ class syngen:
             raise ValueError(
                 "Please provide at least one type of data field to be generated"
                 )
-    def gen_dataframe(self, num = 10, fields = ["name"], real_email=True, seed = None):
+    def gen_dataframe(
+            self,
+            num = 10,
+            fields = ["name"],
+            real_email=True,
+            phone_no = True,
+            seed = None
+            ):
         
         self._validate_args(num, fields)
         
