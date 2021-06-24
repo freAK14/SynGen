@@ -1,14 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: Montserrat;
-  /* font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  /* background-color: #435165; */
   background-image: url("../static/images/icons/login-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,7 +20,6 @@ body {
 }
 
 .login, .register {
-  width: 400px;
   margin: 100px auto;
   background: rgba(255, 255, 255, 0.25);
   -webkit-box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.192);
@@ -43,7 +41,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 20px;
+  font-size: 1.5rem;
   padding: 0 15px;
   margin-top: 30px;
   margin-bottom: 10px;
@@ -52,15 +50,13 @@ body {
 .login .links a, .register .links a {
   color: #adb2ba;
   text-decoration: none;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  padding: 0 10px 10px 10px;
   font-weight: 500;
 }
 
 .login .links a:hover, .register .links a:hover {
-  color: #9da3ac;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  color: #ffffff;
 }
 
 .login .links a.active, .register .links a.active {
@@ -94,17 +90,26 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 20%;
+  height: 20%;
   background-color: #0067ff9c;
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
   color: #ffffff;
+  font-size: 2.5rem;
 }
 
 .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
-  width: 310px;
-  height: 50px;
+  width: 80%;
+  height: 20%;
+  border: 1px solid #dee0e4;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.register form input[type="password"], .register form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+  width: 80%;
+  height: 20%;
   border: 1px solid #dee0e4;
   margin-bottom: 20px;
   padding: 0 15px;
@@ -147,7 +152,7 @@ body {
   background: rgba(100, 100, 100, 0.486);
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
-  height: 60px;
+  height: 10vh;
   width: 100%;
   border: 0;
   margin: auto;
@@ -174,7 +179,7 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-size: 24px;
+  font-size: 2.5rem;
   padding: 0;
   margin: 0;
   color: #eaebed;
@@ -185,10 +190,12 @@ body {
   padding: 0 20px;
   text-decoration: none;
   color: #c1c4c8;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .navtop div a i {
+  font-size: 1.5rem;
   padding: 2px 8px 0 0;
 }
 
@@ -201,7 +208,6 @@ body.loggedin {
 }
 
 .content {
-  width: 1000px;
   margin: 0 auto;
 }
 
@@ -249,9 +255,7 @@ body.loggedin {
 }
 
 .content .modules .module-card {
-  display: inline-block;
-  height: 25%;
-  width: 48%;
+  height: 0% !important;
   padding: 20px;
   margin-top: 45px;
   border-radius: 5px;
@@ -270,14 +274,12 @@ body.loggedin {
 
 .content .modules .module-card a h3 {
   margin: 0;
-  font-size: 24px;
   margin-bottom: 8px;
   color: white;
 }
 
 .content .modules .module-card a p {
   color: #292929;
-  font-size: 18px;
 }
 
 .content .modules .module-1:hover {
@@ -292,7 +294,6 @@ body.loggedin {
           backdrop-filter: blur(10px);
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
-  margin-left: 20px;
 }
 
 .content .modules .module-2:hover {
@@ -314,9 +315,16 @@ body.loggedin {
           box-shadow: 16px -10px 30px #b921ffc4, -3px 6px 30px #21d5fdc2;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .navtop span {
     font-size: 0;
+  }
+  .navtop div a {
+    padding: 0 20px;
+    text-decoration: none;
+    color: #c1c4c8;
+    font-size: 0;
+    font-weight: bold;
   }
 }
 /*# sourceMappingURL=style.css.map */
