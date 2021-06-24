@@ -4,28 +4,51 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Login</title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		    <!-- Bootstrap CSS -->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+			<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	</head>
 	<body>
-		<div class="login">
-			<h1>Login</h1>
-			<div class="links">
-				<a href="{{ url_for('login') }}" class="active">Login</a>
-				<a href="{{ url_for('register') }}">Register</a>
+
+		<div class="row container-fluid ml-0" style="margin-top: 5vh;">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="login" >
+
+					<h1>Login</h1>
+		
+					<div class="links container-fluid ">
+						<a href="{{ url_for('login') }}" class="display-6 active mr-3">Login</a>
+						<a href="{{ url_for('register') }}">Register</a>
+					</div>
+		
+					<form action="{{ url_for('login') }}" method="post" class="form">
+						
+						<label class="form-label " for="username">
+							<i class="fas fa-user"></i>
+						</label>
+						<input type="text" name="username" style="font-size:2rem;" placeholder="Username" class="form-control d-inline" id="username" required>
+						
+						<label for="password">
+							<i class="fas fa-lock"></i>
+						</label>
+						<input  type="password" name="password" placeholder="Password" style="font-size:2rem;" class="form-control" id="password" required>
+						
+						<div class="msg" style="padding: 0;margin: 0;">{{ msg }}</div>
+						
+						<input type="submit" value="Submit">
+						
+					</form>
+		
+				</div>
+
 			</div>
-			<form action="{{ url_for('login') }}" method="post" class="form">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<div class="msg" style="padding: 0;margin: 0;">{{ msg }}</div>
-				<input type="submit" value="Submit">
-			</form>
+			<div class="col-lg-4"></div>
 		</div>
+
+		
+	
+
 	</body>
 </html>
